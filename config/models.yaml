@@ -1,0 +1,54 @@
+whisper_models:
+  tiny:
+    size_mb: 39
+    speed_multiplier: 32
+    accuracy: "low"
+    gpu_memory_gb: 1
+    languages: ["en", "zh", "es", "fr", "de", "ja", "ko"]
+    
+  base:
+    size_mb: 74
+    speed_multiplier: 16
+    accuracy: "medium"
+    gpu_memory_gb: 1
+    languages: ["en", "zh", "es", "fr", "de", "ja", "ko", "it", "pt", "ru"]
+    
+  small:
+    size_mb: 244
+    speed_multiplier: 8
+    accuracy: "good"
+    gpu_memory_gb: 2
+    languages: "all"
+    
+  medium:
+    size_mb: 769
+    speed_multiplier: 6
+    accuracy: "high"
+    gpu_memory_gb: 2
+    languages: "all"
+    
+  large:
+    size_mb: 1550
+    speed_multiplier: 4
+    accuracy: "very_high"
+    gpu_memory_gb: 4
+    languages: "all"
+
+supported_formats:
+  input:
+    audio: [".mp3", ".wav", ".flac", ".m4a", ".aac", ".ogg", ".wma"]
+    video: [".mp4", ".avi", ".mkv", ".mov", ".wmv", ".flv", ".webm"]
+  output:
+    subtitle: [".srt", ".vtt", ".ass", ".ssa", ".dfxp"]
+    text: [".txt", ".json", ".docx", ".pdf", ".html"]
+
+processing_settings:
+  chunk_size_minutes: 10
+  overlap_seconds: 1
+  vad_threshold: 0.5
+  silence_threshold: 0.01
+  min_silence_duration: 0.5
+  max_subtitle_duration: 7.0
+  min_subtitle_duration: 1.0
+  max_chars_per_line: 42
+  max_lines_per_subtitle: 2

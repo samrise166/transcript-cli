@@ -1,0 +1,85 @@
+# Default configuration for transcript-cli
+# This file is used as the base configuration
+
+models:
+  default: medium
+  available:
+    - tiny
+    - base
+    - small
+    - medium
+    - large
+    - large-v2
+    - large-v3
+  download_root: ./data/models
+
+device:
+  type: auto  # auto, cpu, cuda
+  compute_type: float32  # float16, float32, int8
+
+processing:
+  batch_size: 1
+  max_workers: 1
+  chunk_duration: 30
+  vad_filter: true
+  vad_parameters:
+    min_silence_duration_ms: 500
+
+output:
+  default_format: srt
+  formats:
+    - srt
+    - vtt
+    - txt
+    - json
+    - ass
+  include_confidence: false
+  encoding: utf-8
+  line_length: 42
+
+paths:
+  input: ./data/input
+  output: ./data/output
+  temp: ./data/temp
+  logs: ./logs
+  models: ./data/models
+
+logging:
+  level: INFO
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_max_size: 10MB
+  backup_count: 5
+
+advanced:
+  cleanup_temp_files: true
+  max_file_size_mb: 500
+  timeout_seconds: 3600
+  retry_attempts: 3
+  retry_delay: 60
+
+supported_formats:
+  input:
+    audio:
+      - .mp3
+      - .wav
+      - .flac
+      - .m4a
+      - .aac
+      - .ogg
+      - .wma
+    video:
+      - .mp4
+      - .avi
+      - .mov
+      - .mkv
+      - .webm
+      - .flv
+      - .m4v
+  output:
+    subtitle:
+      - .srt
+      - .vtt
+      - .ass
+    text:
+      - .txt
+      - .json
